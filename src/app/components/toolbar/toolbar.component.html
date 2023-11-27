@@ -1,16 +1,56 @@
-<mat-toolbar>
-  <button mat-icon-button color="primary">
-    <mat-icon>menu</mat-icon>
-  </button>
+<mat-toolbar class="toolbar">
+  <div class="toolbar__left">
+    <button class="mobile-menu" mat-icon-button color="primary">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-  <span>Brandon Brown</span>
-  <span class="example-spacer"></span>
+    <button
+      mat-fab
+      extended
+      routerLink="/"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <mat-icon class="material-icons">home</mat-icon>
+      Brandon Brown
+    </button>
+  </div>
 
-  <button mat-mini-fab color="primary">
-    <mat-icon>favorite</mat-icon>
-  </button>
+  <div class="toolbar__right">
+    <button
+      mat-fab
+      extended
+      color="primary"
+      routerLink="portfolio"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Portfolio
+      <mat-icon class="material-icons">folder_open</mat-icon>
+    </button>
 
-  <button mat-mini-fab color="primary">
-    <mat-icon>share</mat-icon>
-  </button>
+    <button
+      mat-fab
+      extended
+      color="primary"
+      routerLink="/about"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      About
+      <mat-icon class="material-icons">mood</mat-icon>
+    </button>
+
+    <button
+      mat-fab
+      extended
+      color="primary"
+      routerLink="/contact"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Contact
+      <mat-icon class="material-icons">contact_support</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
