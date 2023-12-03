@@ -69,7 +69,7 @@ export class PortfolioComponent {
       image: '../../../assets/images/uki.png',
       avatar: '../../../assets/images/uki-avatar.jpeg',
       link: '',
-      alt: 'Sympliact',
+      alt: 'UKi',
     },
     {
       title: 'Amber Engine',
