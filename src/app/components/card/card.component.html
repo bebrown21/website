@@ -1,0 +1,26 @@
+<mat-card class="card">
+  <mat-card-header>
+    <img
+      *ngIf="data.avatar"
+      mat-card-avatar
+      class="card__avatar"
+      [src]="data.avatar"
+    />
+    <mat-card-title>{{ data.title }}</mat-card-title>
+    <mat-card-subtitle>{{ data.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="data.image" [alt]="data.alt" />
+
+  <mat-card-content>
+    <p>
+      {{ data.description }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="onClick(data)">
+      Learn More
+    </button>
+  </mat-card-actions>
+</mat-card>

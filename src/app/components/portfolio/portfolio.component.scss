@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    &__text {
+      max-width: 600px;
+      font-size: 1rem;
+    }
+  }
+
+  p,
+  h2 {
+    flex: 1;
+    gap: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
