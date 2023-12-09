@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface CardData {
+  id: string;
   title: string;
   subtitle: string;
   description: string;
@@ -15,14 +17,15 @@ export interface CardData {
 }
 
 @Component({
-  selector: 'app-card',
+  selector: 'portfolio-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
   @Input() data: CardData = {
+    id: '',
     title: '',
     subtitle: '',
     description: '',
@@ -35,6 +38,6 @@ export class CardComponent {
   constructor(private router: Router) {}
 
   onClick(data: CardData): void {
-    this.router.navigate([data.link]);
+    this.router.navigate(['portfolio', data.id, 'details']);
   }
 }

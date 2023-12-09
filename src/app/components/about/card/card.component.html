@@ -1,0 +1,16 @@
+@if (data) {
+<img *ngIf="data.image" [src]="data.image" alt="" />
+<div>
+  @if (data.link) {
+  <a class="title" mat-button [href]="data.link" target="_blank"
+    >{{ data.title }}
+    <mat-icon>open_in_new</mat-icon>
+  </a>
+  } @else {
+  <p class="title">{{ data.title }}</p>
+  }
+
+  <p class="subtitle">{{ data.subtitle }}</p>
+  <p class="desc">{{ data.description }}</p>
+</div>
+}

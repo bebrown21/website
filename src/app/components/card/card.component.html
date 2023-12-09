@@ -19,8 +19,23 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="onClick(data)">
-      Learn More
+    <button
+      *ngIf="data.link"
+      mat-raised-button
+      color="accent"
+      (click)="onClick(data)"
+    >
+      <mat-icon>open_in_new</mat-icon>
+      Visit Website
+    </button>
+
+    <button
+      *ngIf="false"
+      mat-raised-button
+      color="primary"
+      (click)="onClick(data)"
+    >
+      My Contribution
     </button>
   </mat-card-actions>
 </mat-card>

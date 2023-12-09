@@ -12,18 +12,41 @@
     gap: 2rem;
 
     &__text {
+      display: flex;
+      flex-direction: column;
       max-width: 600px;
       font-size: 1rem;
+      gap: 1.5rem;
     }
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
   }
 
   p,
   h2 {
-    flex: 1;
     gap: 1rem;
   }
 
   h2 {
     font-size: 2rem;
   }
+
+  .location {
+    display: flex;
+
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.mat-expansion-panel-header-title {
+  font-size: 1rem;
+}
+
+mat-divider {
+  margin: 1.25rem 0;
 }

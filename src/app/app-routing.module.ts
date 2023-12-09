@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +13,13 @@ const routes: Routes = [
     loadComponent: () =>
       import('./components/portfolio/portfolio.component').then(
         (m) => m.PortfolioComponent
+      ),
+  },
+  {
+    path: 'portfolio/:id/details',
+    loadComponent: () =>
+      import('./components/portfolio/details/details.component').then(
+        (m) => m.DetailsComponent
       ),
   },
   {
@@ -33,7 +40,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

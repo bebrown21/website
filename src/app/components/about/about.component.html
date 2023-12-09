@@ -1,4 +1,4 @@
-<h2>About Me</h2>
+<!-- <h2>About Me</h2>
 
 <div class="content">
   <div class="content__text">
@@ -20,4 +20,94 @@
   </div>
 
   <img src="../../../assets/images/self.png" alt="self" />
-</div>
+</div> -->
+<!--
+<h2>Education</h2>
+
+<div class="content">
+  <div class="content__text">
+    <p>
+      <strong>Tennessee Technological University</strong>
+    </p>
+    <p>
+      <strong>Bachelor of Science in Electrical Engineering</strong>
+    </p>
+    <p>
+      <strong>Minor in Mathematics</strong>
+    </p>
+    <p>
+      <strong>Minor in Computer Science</strong>
+    </p>
+    <p>
+      <strong>Graduated: May 2011</strong>
+    </p>
+  </div>
+</div> -->
+
+<mat-accordion [multi]="true">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>About Me</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="content">
+      <div class="content__text">
+        <p>
+          I earned my degree in Electrical Engineering from Tennessee
+          Technological University, inspired by my father, a Nuclear Engineer.
+          However, my true calling revealed itself years later when I discovered
+          a profound passion for problem-solving through software. Fueled by
+          this newfound interest, I ventured into the realm of self-taught
+          software engineering, specializing in web development.
+        </p>
+
+        <p>
+          My enthusiasm for continual learning extends to both technological
+          advancements and leadership skills. Armed with robust relational
+          abilities, I boast a diverse background encompassing web development,
+          leadership, teaching, mentoring, and expertise in Agile web
+          development.
+        </p>
+
+        <div class="location">
+          <mat-icon>location_on</mat-icon>
+          <p>Nashville, TN</p>
+        </div>
+      </div>
+
+      <img src="../../../assets/images/self.png" alt="self" />
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Education</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ng-container *ngFor="let ed of education; let lastItem = last">
+      <about-card [data]="ed"></about-card>
+      <mat-divider *ngIf="!lastItem"></mat-divider>
+    </ng-container>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Skills</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    Proficiency Levels:
+    <ol>
+      <li>Fundamental Awareness (basic knowledge)</li>
+      <li>Novice (limited experience)</li>
+      <li>Intermediate (practical application)</li>
+      <li>Advanced (applied theory)</li>
+      <li>Expert (recognized authority)</li>
+    </ol>
+
+    <mat-divider></mat-divider>
+
+    <ng-container *ngFor="let skill of skills; let lastItem = last">
+      <about-card [data]="skill"></about-card>
+      <mat-divider *ngIf="!lastItem"></mat-divider>
+    </ng-container>
+  </mat-expansion-panel>
+</mat-accordion>
