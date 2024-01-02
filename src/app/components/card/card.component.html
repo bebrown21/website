@@ -19,15 +19,16 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button
+    <a
       *ngIf="data.link"
       mat-raised-button
       color="accent"
-      (click)="onClick(data)"
+      target="_blank"
+      [href]="data.link"
     >
       <mat-icon>open_in_new</mat-icon>
       Visit Website
-    </button>
+    </a>
 
     <button
       *ngIf="false"
