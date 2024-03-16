@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-contact',
@@ -11,4 +12,8 @@ import { MatListModule } from '@angular/material/list';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {}
+export class ContactComponent {
+  constructor(private analytics: AngularFireAnalytics) {
+    this.analytics.logEvent('page_view', { page_title: 'Contact' });
+  }
+}

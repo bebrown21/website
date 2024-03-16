@@ -4,6 +4,7 @@ import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { AboutCard, CardComponent } from './card/card.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-about',
@@ -20,6 +21,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AboutComponent implements AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
+
+  constructor(private analytics: AngularFireAnalytics) {
+    this.analytics.logEvent('page_view', { page_title: 'About' });
+  }
 
   education: AboutCard[] = [
     {
