@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/website",
+    "public": "dist/website/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
