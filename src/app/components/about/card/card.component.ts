@@ -12,11 +12,10 @@ export interface AboutCard {
 }
 
 @Component({
-  selector: 'about-card',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+    selector: 'about-card',
+    imports: [CommonModule, MatButtonModule, MatIconModule],
+    templateUrl: './card.component.html',
+    styleUrl: './card.component.scss'
 })
 export class CardComponent {
   @Input() data: AboutCard;

@@ -5,11 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { CardData } from '../../card/card.component';
 
 @Component({
-  selector: 'app-details',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.scss',
+    selector: 'app-details',
+    imports: [CommonModule],
+    templateUrl: './details.component.html',
+    styleUrl: './details.component.scss'
 })
 export class DetailsComponent implements OnInit {
   data: CardData | undefined = {

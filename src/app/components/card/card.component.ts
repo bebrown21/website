@@ -17,11 +17,10 @@ export interface CardData {
 }
 
 @Component({
-  selector: 'portfolio-card',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+    selector: 'portfolio-card',
+    imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+    templateUrl: './card.component.html',
+    styleUrl: './card.component.scss'
 })
 export class CardComponent {
   @Input() data: CardData = {

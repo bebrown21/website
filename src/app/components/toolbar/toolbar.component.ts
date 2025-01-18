@@ -8,18 +8,17 @@ import { Option, ThemeService } from 'src/app/services/theme.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-toolbar',
-  templateUrl: 'toolbar.component.html',
-  styleUrls: ['toolbar.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    RouterModule,
-    MatMenuModule,
-  ],
+    selector: 'app-toolbar',
+    templateUrl: 'toolbar.component.html',
+    styleUrls: ['toolbar.component.scss'],
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        RouterModule,
+        MatMenuModule,
+    ]
 })
 export class ToolbarComponent implements OnInit {
   public options: Option[] = [

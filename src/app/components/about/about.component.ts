@@ -7,17 +7,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatExpansionModule,
-    CardComponent,
-    MatDividerModule,
-    MatIconModule,
-  ],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
+    selector: 'app-about',
+    imports: [
+        CommonModule,
+        MatExpansionModule,
+        CardComponent,
+        MatDividerModule,
+        MatIconModule,
+    ],
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.scss'
 })
 export class AboutComponent implements AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
