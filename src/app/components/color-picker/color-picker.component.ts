@@ -9,11 +9,10 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ThemeManager } from 'src/app/services/theme-manager.service';
 
-const FALLBACK_COLOR = '#6750a4';
+const FALLBACK_COLOR = '#FC72FF';
 
 @Component({
   selector: 'app-color-picker',
-  standalone: true,
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './color-picker.component.html',
   styleUrl: './color-picker.component.scss',
