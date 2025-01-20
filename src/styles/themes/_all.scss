@@ -1,0 +1,11 @@
+@use "@angular/material" as mat;
+@use "./m3-theme" as themes;
+
+@include mat.elevation-classes();
+@include mat.app-background();
+@include mat.core();
+
+:root {
+  @include mat.core-theme(themes.$light-theme);
+  @include mat.all-component-themes(themes.$light-theme);
+}
