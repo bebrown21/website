@@ -4,4 +4,5 @@
 .dark-theme {
   @include mat.core-color(themes.$dark-theme);
   @include mat.all-component-themes(themes.$dark-theme);
+  @include mat.system-level-colors(themes.$dark-theme);
 }

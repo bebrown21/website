@@ -8,4 +8,5 @@
 :root {
   @include mat.core-theme(themes.$light-theme);
   @include mat.all-component-themes(themes.$light-theme);
+  @include mat.system-level-colors(themes.$light-theme);
 }
