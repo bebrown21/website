@@ -83,10 +83,11 @@
       <mat-panel-title>Education</mat-panel-title>
     </mat-expansion-panel-header>
 
-    <ng-container *ngFor="let ed of education; let lastItem = last">
-      <about-card [data]="ed"></about-card>
-      <mat-divider *ngIf="!lastItem"></mat-divider>
-    </ng-container>
+    @for(ed of education; track ed.title; let last = $last) {
+    <about-card [data]="ed"></about-card>
+    @if (!last) {
+    <mat-divider></mat-divider>
+    } }
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -105,9 +106,10 @@
 
     <mat-divider></mat-divider>
 
-    <ng-container *ngFor="let skill of skills; let lastItem = last">
-      <about-card [data]="skill"></about-card>
-      <mat-divider *ngIf="!lastItem"></mat-divider>
-    </ng-container>
+    @for(skill of skills; track skill.title; let last = $last) {
+    <about-card [data]="skill"></about-card>
+    @if (!last) {
+    <mat-divider></mat-divider>
+    } }
   </mat-expansion-panel>
 </mat-accordion>

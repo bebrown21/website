@@ -1,5 +1,6 @@
-@if (data) {
-<img *ngIf="data.image" [src]="data.image" alt="" />
+@if (data) { @if (data.image) {
+<img [src]="data.image" alt="" />
+}
 <div>
   @if (data.link) {
   <a class="title" mat-button [href]="data.link" target="_blank"

@@ -7,6 +7,14 @@
 
 :root {
   @include mat.core-theme(themes.$light-theme);
-  @include mat.all-component-themes(themes.$light-theme);
+  // @include mat.all-component-themes(themes.$light-theme);
+  @include mat.button-theme(themes.$light-theme);
+  @include mat.fab-theme(themes.$light-theme);
+  @include mat.card-theme(themes.$light-theme);
+  @include mat.divider-theme(themes.$light-theme);
+  @include mat.icon-theme(themes.$light-theme);
+  @include mat.menu-theme(themes.$light-theme);
+  @include mat.toolbar-theme(themes.$light-theme);
+
   @include mat.system-level-colors(themes.$light-theme);
 }

@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { AboutCard, CardComponent } from './card/card.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -7,16 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
-    selector: 'app-about',
-    imports: [
-        CommonModule,
-        MatExpansionModule,
-        CardComponent,
-        MatDividerModule,
-        MatIconModule,
-    ],
-    templateUrl: './about.component.html',
-    styleUrl: './about.component.scss'
+  selector: 'app-about',
+  imports: [MatExpansionModule, CardComponent, MatDividerModule, MatIconModule],
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss',
 })
 export class AboutComponent implements AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;

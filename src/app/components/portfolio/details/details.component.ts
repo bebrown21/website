@@ -1,14 +1,12 @@
 import { PORTFOLIO } from './../data';
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CardData } from '../../card/card.component';
 
 @Component({
-    selector: 'app-details',
-    imports: [CommonModule],
-    templateUrl: './details.component.html',
-    styleUrl: './details.component.scss'
+  selector: 'app-details',
+  templateUrl: './details.component.html',
+  styleUrl: './details.component.scss',
 })
 export class DetailsComponent implements OnInit {
   data: CardData | undefined = {

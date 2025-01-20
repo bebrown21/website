@@ -3,6 +3,13 @@
 
 .dark-theme {
   @include mat.core-color(themes.$dark-theme);
-  @include mat.all-component-themes(themes.$dark-theme);
+  // @include mat.all-component-themes(themes.$dark-theme);
+  @include mat.button-theme(themes.$dark-theme);
+  @include mat.fab-theme(themes.$dark-theme);
+  @include mat.card-theme(themes.$dark-theme);
+  @include mat.divider-theme(themes.$dark-theme);
+  @include mat.icon-theme(themes.$dark-theme);
+  @include mat.menu-theme(themes.$dark-theme);
+  @include mat.toolbar-theme(themes.$dark-theme);
   @include mat.system-level-colors(themes.$dark-theme);
 }

@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
-    selector: 'app-contact',
-    imports: [CommonModule, MatIconModule, MatButtonModule, MatListModule],
-    templateUrl: './contact.component.html',
-    styleUrl: './contact.component.scss'
+  selector: 'app-contact',
+  imports: [MatIconModule, MatButtonModule, MatListModule],
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   constructor(private analytics: AngularFireAnalytics) {

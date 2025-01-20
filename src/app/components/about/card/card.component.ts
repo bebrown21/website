@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -12,10 +11,10 @@ export interface AboutCard {
 }
 
 @Component({
-    selector: 'about-card',
-    imports: [CommonModule, MatButtonModule, MatIconModule],
-    templateUrl: './card.component.html',
-    styleUrl: './card.component.scss'
+  selector: 'about-card',
+  imports: [MatButtonModule, MatIconModule],
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.scss',
 })
 export class CardComponent {
   @Input() data: AboutCard;

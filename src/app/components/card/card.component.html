@@ -1,11 +1,9 @@
 <mat-card class="card">
   <mat-card-header>
-    <img
-      *ngIf="data.avatar"
-      mat-card-avatar
-      class="card__avatar"
-      [src]="data.avatar"
-    />
+    @if(data.avatar) {
+    <img mat-card-avatar class="card__avatar" [src]="data.avatar" />
+    }
+
     <mat-card-title>{{ data.title }}</mat-card-title>
     <mat-card-subtitle>{{ data.subtitle }}</mat-card-subtitle>
   </mat-card-header>
@@ -19,24 +17,15 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <a
-      *ngIf="data.link"
-      mat-raised-button
-      color="accent"
-      target="_blank"
-      [href]="data.link"
-    >
+    @if(data.link) {
+    <a mat-raised-button color="accent" target="_blank" [href]="data.link">
       <mat-icon>open_in_new</mat-icon>
       Visit Website
     </a>
-
-    <button
-      *ngIf="false"
-      mat-raised-button
-      color="primary"
-      (click)="onClick(data)"
-    >
+    } @if(false) {
+    <button mat-raised-button color="primary" (click)="onClick(data)">
       My Contribution
     </button>
+    }
   </mat-card-actions>
 </mat-card>

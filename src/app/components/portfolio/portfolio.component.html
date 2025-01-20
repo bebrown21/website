@@ -1,3 +1,3 @@
-<ng-container *ngFor="let card of cards">
-  <portfolio-card [data]="card"></portfolio-card>
-</ng-container>
+@for(card of cards; track card.title) {
+<portfolio-card [data]="card"></portfolio-card>
+}

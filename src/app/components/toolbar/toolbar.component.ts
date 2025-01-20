@@ -4,15 +4,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { CommonModule } from '@angular/common';
 import { ThemeManager } from 'src/app/services/theme-manager.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: 'toolbar.component.html',
   styleUrls: ['toolbar.component.scss'],
   imports: [
-    CommonModule,
+    AsyncPipe,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
