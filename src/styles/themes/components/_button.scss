@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@use "../mixins/elevation" as elevation-mixins;
+
+@mixin base($theme) {
+  // mat-flat-button
+  &.mdc-button--unelevated {
+    @include elevation-mixins.elevation(2);
+  }
+
+  // mat-stroked-button
+  &.mdc-button--outlined {
+    @include elevation-mixins.elevation(2);
+  }
+
+  // mat-raised-button
+  &.mdc-button--raised {
+    @include elevation-mixins.elevation(2);
+  }
+
+  // mat-icon-button
+  &.mdc-icon-button {
+    @include elevation-mixins.elevation(2);
+    border-radius: 50%;
+  }
+
+  &.mdc-fab {
+    @include elevation-mixins.elevation(2);
+  }
+}
+
+@mixin color($theme) {
+  &.mdc-icon-button {
+    background-color: var(
+      --mdc-protected-button-container-color,
+      var(--mat-app-surface)
+    );
+  }
+}
+
+@mixin theme($theme) {
+  @if mat.theme-has($theme, base) {
+    @include base($theme);
+  }
+  @if mat.theme-has($theme, color) {
+    @include color($theme);
+  }
+}
