@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { ThemeManager } from 'src/app/services/theme-manager.service';
 import { AsyncPipe } from '@angular/common';
+import { ColorPickerComponent } from '../color-picker/color-picker.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -18,6 +19,7 @@ import { AsyncPipe } from '@angular/common';
     MatButtonModule,
     RouterModule,
     MatMenuModule,
+    ColorPickerComponent,
   ],
 })
 export class ToolbarComponent {
