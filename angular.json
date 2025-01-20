@@ -33,7 +33,7 @@
                 "input": "src/styles/themes/dark.scss"
               }
             ],
-            "scripts": [],
+            "scripts": ["node_modules/particles.js/particles.js"],
             "browser": "src/main.ts"
           },
           "configurations": {
