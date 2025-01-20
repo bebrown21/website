@@ -144,6 +144,9 @@ $dark-theme: mat.define-theme(
       tertiary: $tertiary-palette,
       use-system-variables: true,
     ),
+    density: (
+      scale: 0,
+    ),
   )
 );
 
