@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { take } from 'rxjs/operators';
 import { BrowserStorageService } from './browser-storage.service';
+import { FALLBACK_PRIMARY_COLOR } from '../const/colors';
 
 const LOCAL_STORAGE_KEY = 'my-app';
 
@@ -12,6 +13,7 @@ export class ThemeManager {
   private browserStorage = inject(BrowserStorageService);
   private _isDarkSub = new BehaviorSubject(false);
   isDark$ = this._isDarkSub.asObservable();
+  selectedColorFromPicker = signal(FALLBACK_PRIMARY_COLOR);
   private _window = this.document.defaultView;
 
   constructor() {

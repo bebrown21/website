@@ -8,8 +8,7 @@ import {
 } from '@material/material-color-utilities';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ThemeManager } from 'src/app/services/theme-manager.service';
-
-const FALLBACK_COLOR = '#FC72FF';
+import { FALLBACK_PRIMARY_COLOR } from 'src/app/const/colors';
 
 @Component({
   selector: 'app-color-picker',
@@ -18,10 +17,10 @@ const FALLBACK_COLOR = '#FC72FF';
   styleUrl: './color-picker.component.scss',
 })
 export class ColorPickerComponent {
-  color = FALLBACK_COLOR;
+  color = FALLBACK_PRIMARY_COLOR;
   isDark = toSignal(inject(ThemeManager).isDark$);
 
-  constructor() {
+  constructor(private themeManager: ThemeManager) {
     effect(() => {
       this.generateDynamicTheme(this.isDark());
     });
@@ -31,7 +30,7 @@ export class ColorPickerComponent {
     const inputElement = ev.target as HTMLInputElement;
 
     this.color = inputElement.value;
-
+    this.themeManager.selectedColorFromPicker.set(this.color);
     this.generateDynamicTheme(this.isDark());
   }
 
@@ -41,7 +40,7 @@ export class ColorPickerComponent {
       argb = argbFromHex(this.color);
     } catch (error) {
       // falling to default color if it's invalid color
-      argb = argbFromHex(FALLBACK_COLOR);
+      argb = argbFromHex(FALLBACK_PRIMARY_COLOR);
     }
 
     const targetElement = document.documentElement;
