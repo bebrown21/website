@@ -1,0 +1,38 @@
+.window {
+  position: absolute;
+  width: 1000px;
+  height: 800px;
+  border: 2px solid black;
+  z-index: 9;
+  background-color: var(
+    --mdc-elevated-card-container-color,
+    var(--mat-sys-surface-container-low)
+  );
+  border-color: var(
+    --mdc-elevated-card-container-color,
+    var(--mat-sys-surface-container-low)
+  );
+  border-radius: var(
+    --mdc-elevated-card-container-shape,
+    var(--mat-sys-corner-medium)
+  );
+  box-shadow: var(
+    --mdc-elevated-card-container-elevation,
+    var(--mat-sys-level1)
+  );
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--mdc-fab-container-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.content {
+  padding: 10px;
+}

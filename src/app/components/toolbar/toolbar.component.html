@@ -13,6 +13,16 @@
       <mat-icon class="material-icons">home</mat-icon>
       Brandon Brown
     </button>
+
+    <button mat-button (click)="openWindow('settings')">
+      <mat-icon class="material-icons">settings</mat-icon>
+      Settings
+    </button>
+
+    <button mat-button (click)="openWindow('profile')">
+      <mat-icon class="material-icons">profile</mat-icon>
+      Profile
+    </button>
   </div>
 
   <div class="toolbar__right">
@@ -71,3 +81,13 @@
     <app-color-picker></app-color-picker>
   </div>
 </mat-toolbar>
+
+<app-window
+  *ngFor="let win of windows"
+  [title]="win.title"
+  [outlet]="win.outlet"
+  [x]="win.x"
+  [x]="win.y"
+  (close)="close($event)"
+>
+</app-window>

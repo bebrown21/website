@@ -1,12 +1,55 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SettingsComponent } from './components/settings/settings.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { PlatformComponent } from './components/settings/platform/platform.component';
+import { PersonalComponent } from './components/settings/personal/personal.component';
+import { ThirdPartyComponent } from './components/settings/third-party/third-party.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
-    loadComponent: () =>
-      import('./components/home/home.component').then((m) => m.HomeComponent),
+    component: HomeComponent,
+  },
+  {
+    outlet: 'settings',
+    path: 'home',
+    component: SettingsComponent,
+    children: [
+      {
+        path: 'platform',
+        component: PlatformComponent,
+      },
+      {
+        path: 'personal',
+        component: PersonalComponent,
+      },
+      {
+        path: 'third-party',
+        component: ThirdPartyComponent,
+      },
+    ],
+  },
+  {
+    outlet: 'profile',
+    path: 'home',
+    component: ProfileComponent,
+    children: [
+      {
+        path: 'platform',
+        component: PlatformComponent,
+      },
+      {
+        path: 'personal',
+        component: PersonalComponent,
+      },
+      {
+        path: 'third-party',
+        component: ThirdPartyComponent,
+      },
+    ],
   },
   {
     path: 'portfolio',
@@ -41,7 +84,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
   ],
   exports: [RouterModule],
 })

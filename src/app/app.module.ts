@@ -11,6 +11,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { WindowComponent } from './components/window/window.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToolbarComponent,
+    WindowComponent,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAnalyticsModule,
   ],

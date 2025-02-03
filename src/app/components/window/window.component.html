@@ -1,0 +1,11 @@
+<div class="window" [style.left.px]="x" [style.top.px]="y">
+  <div class="title-bar">
+    <span>{{ title }}</span>
+    <button mat-icon-button (click)="closeWindow()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <router-outlet [name]="outlet"></router-outlet>
+  </div>
+</div>
