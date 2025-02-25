@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './components/settings/settings.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { PlatformComponent } from './components/settings/platform/platform.component';
 import { PersonalComponent } from './components/settings/personal/personal.component';
 import { ThirdPartyComponent } from './components/settings/third-party/third-party.component';
@@ -16,7 +14,10 @@ const routes: Routes = [
   {
     outlet: 'settings',
     path: 'home',
-    component: SettingsComponent,
+    loadComponent: () =>
+      import('./components/settings/settings.component').then(
+        (m) => m.SettingsComponent
+      ),
     children: [
       {
         path: 'platform',
@@ -30,12 +31,16 @@ const routes: Routes = [
         path: 'third-party',
         component: ThirdPartyComponent,
       },
+      { path: '**', redirectTo: 'platform' },
     ],
   },
   {
     outlet: 'profile',
     path: 'home',
-    component: ProfileComponent,
+    loadComponent: () =>
+      import('./components/profile/profile.component').then(
+        (m) => m.ProfileComponent
+      ),
     children: [
       {
         path: 'platform',
@@ -49,6 +54,7 @@ const routes: Routes = [
         path: 'third-party',
         component: ThirdPartyComponent,
       },
+      { path: '**', redirectTo: 'platform' },
     ],
   },
   {
@@ -86,6 +92,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
+      // enableTracing: true,
     }),
   ],
   exports: [RouterModule],

@@ -11,10 +11,6 @@ declare let particlesJS: any;
 export class ParticlesComponent implements OnInit {
   constructor(private themeManager: ThemeManager) {
     effect(() => {
-      console.log(
-        'Color changed to:',
-        this.themeManager.selectedColorFromPicker()
-      );
       this.invokeParticles(this.themeManager.selectedColorFromPicker());
     });
   }

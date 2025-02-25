@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-window',
@@ -29,15 +29,12 @@ export class WindowComponent {
 
   private componentRef?: ComponentRef<any>;
 
-  constructor(private router: Router) {}
-
-  loadComponent(component: any) {
+  loadComponent(component: any): void {
     this.content?.clear();
     this.componentRef = this.content.createComponent(component);
   }
 
-  closeWindow() {
-    this.router.navigate([{ outlets: { [this.outlet]: null } }]); // Remove auxiliary route
+  closeWindow(): void {
     this.close.emit(this.outlet);
   }
 }

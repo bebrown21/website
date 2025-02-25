@@ -82,12 +82,13 @@
   </div>
 </mat-toolbar>
 
+@for(win of windows; track win.outlet) {
 <app-window
-  *ngFor="let win of windows"
   [title]="win.title"
   [outlet]="win.outlet"
   [x]="win.x"
-  [x]="win.y"
+  [y]="win.y"
   (close)="close($event)"
 >
 </app-window>
+}
