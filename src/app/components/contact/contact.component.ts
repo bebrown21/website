@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatFabAnchor } from '@angular/material/button';
 import { MatList, MatListItem, MatListItemIcon, MatListItemTitle } from '@angular/material/list';
-import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +11,7 @@ import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  constructor(private analytics: AngularFireAnalytics) {
+  constructor(private analytics: AnalyticsService) {
     this.analytics.logEvent('page_view', { page_title: 'Contact' });
   }
 }

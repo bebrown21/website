@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CardComponent, CardData } from '../card/card.component';
 import { PORTFOLIO } from './data';
-import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,7 +10,7 @@ import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
   styleUrl: './portfolio.component.scss',
 })
 export class PortfolioComponent {
-  constructor(private analytics: AngularFireAnalytics) {
+  constructor(private analytics: AnalyticsService) {
     this.analytics.logEvent('page_view', { page_title: 'Portfolio' });
   }
 

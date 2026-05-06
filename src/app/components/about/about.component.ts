@@ -8,7 +8,7 @@ import {
 import { AboutCard, CardComponent } from './card/card.component';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
-import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-about',
@@ -27,7 +27,7 @@ import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 export class AboutComponent implements AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
 
-  constructor(private analytics: AngularFireAnalytics) {
+  constructor(private analytics: AnalyticsService) {
     this.analytics.logEvent('page_view', { page_title: 'About' });
   }
 
