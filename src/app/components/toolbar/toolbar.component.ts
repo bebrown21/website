@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatFabButton, MatIconButton } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { MatTooltip } from '@angular/material/tooltip';
 import { ThemeManager } from 'src/app/services/theme-manager.service';
 import { AsyncPipe } from '@angular/common';
 import { ColorPickerComponent } from '../color-picker/color-picker.component';
@@ -15,12 +15,16 @@ import { ColorPickerComponent } from '../color-picker/color-picker.component';
   styleUrls: ['toolbar.component.scss'],
   imports: [
     AsyncPipe,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
+    MatToolbar,
+    MatIcon,
+    MatButton,
+    MatFabButton,
+    MatIconButton,
     RouterModule,
-    MatMenuModule,
-    MatTooltipModule,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger,
+    MatTooltip,
     ColorPickerComponent,
   ],
 })

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatAnchor } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 export interface AboutCard {
   title: string;
@@ -12,7 +12,7 @@ export interface AboutCard {
 
 @Component({
   selector: 'about-card',
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatAnchor, MatIcon],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })

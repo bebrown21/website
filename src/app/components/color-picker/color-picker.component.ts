@@ -1,6 +1,6 @@
 import { Component, effect, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatFabButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import {
   argbFromHex,
   themeFromSourceColor,
@@ -12,7 +12,7 @@ import { FALLBACK_PRIMARY_COLOR } from 'src/app/const/colors';
 
 @Component({
   selector: 'app-color-picker',
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatFabButton, MatIcon],
   templateUrl: './color-picker.component.html',
   styleUrl: './color-picker.component.scss',
 })

@@ -1,13 +1,26 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import {
+  MatAccordion,
+  MatExpansionPanel,
+  MatExpansionPanelHeader,
+  MatExpansionPanelTitle,
+} from '@angular/material/expansion';
 import { AboutCard, CardComponent } from './card/card.component';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-about',
-  imports: [MatExpansionModule, CardComponent, MatDividerModule, MatIconModule],
+  imports: [
+    MatAccordion,
+    MatExpansionPanel,
+    MatExpansionPanelHeader,
+    MatExpansionPanelTitle,
+    CardComponent,
+    MatDivider,
+    MatIcon,
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
+import { MatFabAnchor } from '@angular/material/button';
+import { MatList, MatListItem, MatListItemIcon, MatListItemTitle } from '@angular/material/list';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-contact',
-  imports: [MatIconModule, MatButtonModule, MatListModule],
+  imports: [MatIcon, MatFabAnchor, MatList, MatListItem, MatListItemIcon, MatListItemTitle],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
