@@ -9,7 +9,9 @@
   .content {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 2rem;
+    width: 100%;
 
     &__text {
       display: flex;
@@ -17,6 +19,14 @@
       max-width: 600px;
       font-size: 1rem;
       gap: 1.5rem;
+    }
+
+    &__image {
+      width: min(320px, 100%);
+      height: auto;
+      border-radius: 0.75rem;
+      object-fit: cover;
+      flex-shrink: 0;
     }
   }
 
@@ -49,4 +59,46 @@
 
 mat-divider {
   margin: 1.25rem 0;
+}
+
+@media (max-width: 992px) {
+  :host {
+    padding: 1.5rem;
+  }
+
+  :host .content {
+    gap: 1.25rem;
+  }
+
+  :host p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+
+  :host .content {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  :host .content__text {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  :host .content__image {
+    width: min(260px, 75vw);
+    align-self: center;
+  }
+
+  :host p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }

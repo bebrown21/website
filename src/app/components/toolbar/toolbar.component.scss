@@ -14,3 +14,32 @@
     gap: 1rem;
   }
 }
+
+@media (max-width: 768px) {
+  .toolbar {
+    &__right {
+      gap: 0.5rem;
+      align-items: center;
+    }
+  }
+
+  .toolbar-btn {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+
+    &__label {
+      display: none;
+    }
+
+    .mat-icon {
+      margin: 0;
+    }
+  }
+
+  app-color-picker {
+    display: none;
+  }
+}

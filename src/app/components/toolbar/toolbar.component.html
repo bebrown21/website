@@ -9,9 +9,11 @@
       routerLink="/"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
+      aria-label="Home"
+      matTooltip="Home"
     >
       <mat-icon class="material-icons">home</mat-icon>
-      Brandon Brown
+      <span>Brandon Brown</span>
     </button>
   </div>
 
@@ -19,43 +21,53 @@
     <button
       mat-fab
       extended
+      class="toolbar-btn"
       color="primary"
       routerLink="portfolio"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
+      aria-label="Portfolio"
+      matTooltip="Portfolio"
     >
-      Portfolio
+      <span class="toolbar-btn__label">Portfolio</span>
       <mat-icon class="material-icons">folder_open</mat-icon>
     </button>
 
     <button
       mat-fab
       extended
+      class="toolbar-btn"
       color="primary"
       routerLink="/about"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
+      aria-label="About"
+      matTooltip="About"
     >
-      About
+      <span class="toolbar-btn__label">About</span>
       <mat-icon class="material-icons">mood</mat-icon>
     </button>
 
     <button
       mat-fab
       extended
+      class="toolbar-btn"
       color="primary"
       routerLink="/contact"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
+      aria-label="Contact"
+      matTooltip="Contact"
     >
-      Contact
+      <span class="toolbar-btn__label">Contact</span>
       <mat-icon class="material-icons">phone</mat-icon>
     </button>
 
     <button
       mat-fab
-      class="theme-toggle"
+      class="theme-toggle toolbar-btn"
       aria-label="Change theme"
+      matTooltip="Theme"
       [matMenuTriggerFor]="themeMenu"
     >
       <mat-icon>
