@@ -108,26 +108,26 @@ $__typed-pauses-chars: (
         }
       }
       @each $prop in $all-props {
-        $value: if(
-          map.get($styles, $prop) == null,
-          unset,
-          map.get($styles, $prop)
-        );
-        #{$prop}: if(
-          meta.type-of($value) == list,
-          list.append($value, null, auto),
-          $value
-        );
+        $prop-value: map.get($styles, $prop);
+        $value: unset;
+        @if $prop-value != null {
+          $value: $prop-value;
+        }
+        @if meta.type-of($value) == list {
+          #{$prop}: list.append($value, null, auto);
+        } @else {
+          #{$prop}: $value;
+        }
       }
     }
   } @else if meta.type-of($styles) == map {
     @if length(map.keys($styles)) > 0 {
       @each $prop, $value in $styles {
-        #{$prop}: if(
-          meta.type-of($value) == list,
-          list.append($value, null, auto),
-          $value
-        );
+        @if meta.type-of($value) == list {
+          #{$prop}: list.append($value, null, auto);
+        } @else {
+          #{$prop}: $value;
+        }
       }
     }
   } @else {
@@ -246,6 +246,10 @@ $__typed-pauses-chars: (
   $result: 0;
   $digits: 0;
   $minus: string.slice($value, 1, 1) == "-";
+  $start-index: 1;
+  @if $minus {
+    $start-index: 2;
+  }
   $numbers: (
     "0": 0,
     "1": 1,
@@ -258,11 +262,15 @@ $__typed-pauses-chars: (
     "8": 8,
     "9": 9,
   );
-  @for $i from if($minus, 2, 1) through string.length($value) {
+  @for $i from $start-index through string.length($value) {
     $character: string.slice($value, $i, $i);
     @if not(index(map.keys($numbers), $character) or $character == ".") {
+      $signed-result: $result;
+      @if $minus {
+        $signed-result: -$result;
+      }
       @return __typed-to-length(
-        if($minus, -$result, $result),
+        $signed-result,
         string.slice($value, $i)
       );
     }
@@ -275,7 +283,10 @@ $__typed-pauses-chars: (
       $result: $result + __div(map.get($numbers, $character), $digits);
     }
   }
-  @return if($minus, -$result, $result);
+  @if $minus {
+    @return -$result;
+  }
+  @return $result;
 }
 // CREDIT END
 //
@@ -314,21 +325,24 @@ $__typed-pauses-chars: (
     $is-fwd: string.slice($str, $start + 2, $start + 2) == "_";
     $is-bwd: string.slice($str, $end - 1, $end - 1) == "_";
     $is-both: $is-fwd and $is-bwd;
-    $space-char: if(
-      $is-both,
-      map.get($__typed-pauses-chars, both),
-      if(
-        $is-bwd,
-        map.get($__typed-pauses-chars, bwd),
-        if(
-          $is-fwd,
-          map.get($__typed-pauses-chars, fwd),
-          map.get($__typed-pauses-chars, $default-mode)
-        )
-      )
-    );
+    $space-char: map.get($__typed-pauses-chars, $default-mode);
+    @if $is-both {
+      $space-char: map.get($__typed-pauses-chars, both);
+    } @else if $is-bwd {
+      $space-char: map.get($__typed-pauses-chars, bwd);
+    } @else if $is-fwd {
+      $space-char: map.get($__typed-pauses-chars, fwd);
+    }
+    $start-offset: 2;
+    @if $is-fwd {
+      $start-offset: 3;
+    }
+    $end-offset: 1;
+    @if $is-bwd {
+      $end-offset: 2;
+    }
     $value: __typed-to-number(
-      string.slice($str, $start + if($is-fwd, 3, 2), $end - if($is-bwd, 2, 1))
+      string.slice($str, $start + $start-offset, $end - $end-offset)
     );
     $spaces: "";
     @for $i from 0 to $value {
@@ -555,18 +569,15 @@ $__typed-id: 0;
   $dur-char-bwd: map.get($speeds, delete);
   $dur-done-gap: map.get($speeds, pause-deleted);
   $animation-delay: map.get($options, delay);
-  $final-string: __typed-inject-pauses(
-    if(
-      map.get($options, end-on) != "",
-      map.get($options, end-on),
-      list.nth($strings, 1)
-    )
-  );
-  $alt-text: if(
-    map.get($options, alt-text) != "",
-    map.get($options, alt-text),
-    $final-string
-  );
+  $final-string-source: list.nth($strings, 1);
+  @if map.get($options, end-on) != "" {
+    $final-string-source: map.get($options, end-on);
+  }
+  $final-string: __typed-inject-pauses($final-string-source);
+  $alt-text: $final-string;
+  @if map.get($options, alt-text) != "" {
+    $alt-text: map.get($options, alt-text);
+  }
   $caret-width: map.get($options, caret-width);
   $caret-color: map.get($options, caret-color);
   $caret-space: map.get($options, caret-space);
